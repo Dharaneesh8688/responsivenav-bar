@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive navbar</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-content {
+    text-align: end;
+}
+nav {
+    background-color: rgb(132, 245, 234);
+   padding: 10px;
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-first, .li-first, h3 {
+    text-decoration: none;
+    display: inline;
+    margin: 0;
+    padding: 10px;
+}
+
+li{
+    list-style: none;
+}
+.nav-responsive {
+    display: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.nav-responsive ,a{
+    text-decoration: none;
+    
+    color: black;
+
+}
+hr{
+    color: black;
+    
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+   
+    .nav-first {
+        display: none;
+    }
+    #toggle-label {
+        display: inline-block;
+       
+  
+    }
+    ul,.nav_second{
+        background-color: aqua;
+    }
+    #toggle-label span {
+        display: block;
+        width: 30px;
+        height: 5px;
+        background-color: black;
+        margin: 5px 0;   
+    }
+ 
+}
+.li-second,.li-first{
+    font-size: larger;
+}
+
+
+.nav-responsive {
+            display: none;
+            
+            transition: max-height 0.3s ease-out;
+        }
+
+        .nav-responsive.active {
+            display: block;
+            max-height: 200px;
+        }
+
+        .nav-second {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-second li {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .li-first:hover{
+         text-decoration-line: underline;
+        }
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand"><h1>Your Brand</h1></div>
+       
+        <div class="nav-content">
+            <ul class="nav-first">
+                <li class="li-first">Home</li>
+                <li class="li-first">Projects</li>
+                <li class="li-first">Something</li>
+                <li class="li-first">Content</li>
+                <li class="li-first">About</li>
+                
+            </ul>
+            <label for="toggle" class="toggle" id="toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </nav>
+   
+    <div class="nav-responsive" id="responsive-menu">
+        <div>
+            <ul class="nav-second">
+                <li class="li-second"><a href="">Home</a></li>
+                <hr>
+                <li class="li-second"><a href="">Projects</a></li>
+                <hr>
+                <li class="li-second"><a href="">Something</a></li>
+                <hr>
+                <li class="li-second"><a href="">Content</a></li>
+                <hr>
+                <li class="li-second"><a href="">About</a></li>
+                <hr>
+               
+              
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-label');
+        const responsiveMenu = document.getElementById('responsive-menu');
+
+        toggleButton.addEventListener('click', function() {
+            responsiveMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
